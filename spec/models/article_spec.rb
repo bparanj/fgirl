@@ -15,4 +15,22 @@ describe Article do
     expect(article.author.name).to eq('Bugs Bunny')
   end
 
+  it "mapping has_many association to factory_girl : example 1" do
+    article = FactoryGirl.create(:article)
+    
+    expect(article.comments.length).to eq(0)
+  end
+
+  it "mapping has_many association to factory_girl : example 2" do
+    article = FactoryGirl.create(:article_with_comments)
+    
+    expect(article.comments.length).to eq(2)
+  end
+
+  it "mapping has_many association to factory_girl : example 3" do
+    article = FactoryGirl.create(:article_with_comments, comments_count: 3)
+    
+    expect(article.comments.length).to eq(3)
+  end
+
 end

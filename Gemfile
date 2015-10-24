@@ -22,8 +22,11 @@ end
 
 gem 'jquery-rails'
 
-group :test do
+group :test, :development do
   gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'rspec-rails', '~> 2.0'
+  # band aid fix for cannot load such file -- test/unit/testcase (LoadError)
+  gem 'test-unit'
   # gem 'database_cleaner'
 end
 
